@@ -8,7 +8,29 @@ The projects included here explore the **full lifecycle of data pipelines**, fro
 
 ---
 
-## Technologies & Concepts
+# Data Pipeline Architecture
+
+```text
+Raw Data Sources
+     │
+     ▼
+Data Ingestion
+     │
+     ▼
+Data Transformation (ETL / ELT)
+     │
+     ▼
+Data Storage
+     │
+     ▼
+Analytics / Querying
+```
+
+This repository demonstrates different implementations of these stages using Python, SQL, and lightweight databases.
+
+---
+
+# Technologies & Concepts
 
 This repository explores several core areas of **Data Engineering**:
 
@@ -17,6 +39,7 @@ This repository explores several core areas of **Data Engineering**:
 * Pandas for data transformation
 * ETL / ELT pipeline development
 * Data ingestion from multiple formats (CSV, JSON, XML)
+* Web scraping for data collection
 * Relational databases (SQLite)
 * Logging and pipeline monitoring
 * Data warehouse concepts
@@ -31,32 +54,39 @@ Future expansions may include:
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 ```text
 data-engineering-monorepo
 │
-├── SQLite_Pandas
+├── sqlite-pandas-ingestion
 │   ├── db_code.py
 │   ├── INSTRUCTOR.csv
 │   ├── Departments.csv
 │   └── README.md
 │
-├── etl
+├── multi-source-etl
 │   ├── etl_practice.py
 │   ├── source.zip
 │   └── README.md
 │
-├── site-exemplo
+├── largest-banks-etl-pipeline
+│   ├── banks_etl_pipeline.py
+│   ├── exchange_rate.csv
+│   └── README.md
+│
+├── web-scraping-movies
+│   ├── webscraping_movies.py
+│   └── README.md
 │
 └── README.md
 ```
 
 ---
 
-## Projects
+# Projects
 
-### SQLite + Pandas Data Ingestion
+## SQLite + Pandas Data Ingestion
 
 Demonstrates loading CSV files into a SQLite database using Pandas and executing SQL queries.
 
@@ -66,12 +96,13 @@ Concepts explored:
 * SQL queries from Python
 * Table creation
 * Data appending
+* Local relational data storage
 
 ---
 
-### Multi-Source ETL Pipeline
+## Multi-Source ETL Pipeline
 
-Implements a simple ETL pipeline capable of extracting data from:
+Implements an ETL pipeline capable of extracting data from multiple formats:
 
 * CSV
 * JSON
@@ -81,14 +112,46 @@ The pipeline consolidates the data into a unified dataset and logs the execution
 
 Concepts explored:
 
-* Multi-source ingestion
+* Multi-source data ingestion
 * Data transformation
-* ETL logging
+* Pipeline logging
 * Data consolidation
 
 ---
 
-## Purpose
+## Largest Banks ETL Pipeline
+
+A complete **web scraping ETL pipeline** that extracts market capitalization data for the world's largest banks from Wikipedia.
+
+Pipeline steps:
+
+1. Extract data via web scraping
+2. Transform the dataset with currency conversions
+3. Load the results into CSV and SQLite
+
+Concepts explored:
+
+* Web scraping
+* Data transformation
+* Currency conversion
+* Database loading
+
+---
+
+## Movie Ranking Web Scraping Pipeline
+
+Scrapes movie ranking data from an archived webpage, filters films based on release year, and stores the results in CSV and SQLite.
+
+Concepts explored:
+
+* HTML parsing with BeautifulSoup
+* Data filtering logic
+* Structured dataset creation
+* Relational data storage
+
+---
+
+# Purpose
 
 The purpose of this repository is to:
 
@@ -99,7 +162,7 @@ The purpose of this repository is to:
 
 ---
 
-## Author
+# Author
 
 **Paulo Potter Marchi**
 
